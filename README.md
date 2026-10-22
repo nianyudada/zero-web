@@ -1,11 +1,11 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  # 后台管理页面设计
 
-  <h1>Built with AI Studio</h2>
+  This is a code bundle for 后台管理页面设计. The original project is available at https://www.figma.com/design/guC23fBavThvLvVokS8jUL/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2%E8%AE%BE%E8%AE%A1.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+  ## Running the code
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+  Run `npm i` to install the dependencies.
 
-</div>
+  Run `npm run dev` to start the development server.
+  
