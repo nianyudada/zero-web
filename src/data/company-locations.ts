@@ -176,7 +176,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [119.973986, 31.810589],
     logoColor: 'from-amber-200 to-amber-500',
     industry: '分布式光伏与智慧能源',
-    installedCapacity: '86.4 MWp',
+    installedCapacity: '86,400 kWp',
     storageCapacity: '16.0 MW',
     storageQuota: '32.0 MWh',
     carbonReduction: '12,800 tCO₂/年',
@@ -200,7 +200,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [119.945821, 31.698745],
     logoColor: 'from-emerald-200 to-emerald-500',
     industry: '高端装备能效升级',
-    installedCapacity: '42.8 MWp',
+    installedCapacity: '42,800 kWp',
     storageCapacity: '9.0 MW',
     storageQuota: '18.5 MWh',
     carbonReduction: '6,450 tCO₂/年',
@@ -220,7 +220,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [120.738291, 31.275142],
     logoColor: 'from-blue-200 to-blue-500',
     industry: '虚拟电厂与能碳算法',
-    installedCapacity: '28.0 MWp',
+    installedCapacity: '28,000 kWp',
     storageCapacity: '6.0 MW',
     storageQuota: '12.0 MWh',
     carbonReduction: '4,100 tCO₂/年',
@@ -242,7 +242,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [120.210452, 30.187321],
     logoColor: 'from-emerald-200 to-emerald-500',
     industry: '源网荷储微网集成',
-    installedCapacity: '65.2 MWp',
+    installedCapacity: '65,200 kWp',
     storageCapacity: '12.5 MW',
     storageQuota: '25.0 MWh',
     carbonReduction: '9,800 tCO₂/年',
@@ -262,7 +262,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [119.998451, 30.278912],
     logoColor: 'from-indigo-200 to-indigo-500',
     industry: '负荷聚合与微电网',
-    installedCapacity: '35.0 MWp',
+    installedCapacity: '35,000 kWp',
     storageCapacity: '7.5 MW',
     storageQuota: '15.0 MWh',
     carbonReduction: '5,200 tCO₂/年',
@@ -282,7 +282,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [121.625891, 29.864123],
     logoColor: 'from-cyan-200 to-cyan-500',
     industry: '智慧港口光储充一体化',
-    installedCapacity: '55.4 MWp',
+    installedCapacity: '55,400 kWp',
     storageCapacity: '15.0 MW',
     storageQuota: '30.0 MWh',
     carbonReduction: '8,400 tCO₂/年',
@@ -304,7 +304,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [113.945281, 22.548912],
     logoColor: 'from-blue-200 to-blue-500',
     industry: '零碳顶层咨询与数字化',
-    installedCapacity: '110.0 MWp',
+    installedCapacity: '110,000 kWp',
     storageCapacity: '20.0 MW',
     storageQuota: '40.0 MWh',
     carbonReduction: '17,200 tCO₂/年',
@@ -328,7 +328,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [113.884123, 22.561234],
     logoColor: 'from-amber-200 to-amber-500',
     industry: '液冷极速超充网络',
-    installedCapacity: '30.5 MWp',
+    installedCapacity: '30,500 kWp',
     storageCapacity: '10.0 MW',
     storageQuota: '20.0 MWh',
     carbonReduction: '4,800 tCO₂/年',
@@ -348,7 +348,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [113.456712, 23.167891],
     logoColor: 'from-teal-200 to-teal-500',
     industry: '氢光储多能流耦合',
-    installedCapacity: '78.0 MWp',
+    installedCapacity: '78,000 kWp',
     storageCapacity: '14.0 MW',
     storageQuota: '28.0 MWh',
     carbonReduction: '11,500 tCO₂/年',
@@ -370,7 +370,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [105.706421, 38.845123],
     logoColor: 'from-cyan-200 to-cyan-500',
     industry: '荒漠光伏治沙与生态修复',
-    installedCapacity: '1,200.0 MWp',
+    installedCapacity: '1,200,000 kWp',
     storageCapacity: '150.0 MW',
     storageQuota: '300.0 MWh',
     carbonReduction: '184,000 tCO₂/年',
@@ -394,7 +394,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [101.072134, 41.968745],
     logoColor: 'from-emerald-200 to-emerald-500',
     industry: '沙戈荒大型基地',
-    installedCapacity: '800.0 MWp',
+    installedCapacity: '800,000 kWp',
     storageCapacity: '80.0 MW',
     storageQuota: '160.0 MWh',
     carbonReduction: '125,000 tCO₂/年',
@@ -416,7 +416,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [114.887654, 40.789123],
     logoColor: 'from-purple-200 to-purple-500',
     industry: '陆上风电集中监控与集控',
-    installedCapacity: '350.0 MWp',
+    installedCapacity: '350,000 kWp',
     storageCapacity: '35.0 MW',
     storageQuota: '70.0 MWh',
     carbonReduction: '54,000 tCO₂/年',
@@ -436,7 +436,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [114.612345, 41.854123],
     logoColor: 'from-blue-200 to-blue-500',
     industry: '风光荷储网一体化基地',
-    installedCapacity: '620.0 MWp',
+    installedCapacity: '620,000 kWp',
     storageCapacity: '60.0 MW',
     storageQuota: '120.0 MWh',
     carbonReduction: '96,000 tCO₂/年',
@@ -458,7 +458,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [98.508765, 39.743219],
     logoColor: 'from-rose-200 to-rose-500',
     industry: '熔盐储热与可调光热发电',
-    installedCapacity: '150.0 MWp',
+    installedCapacity: '150,000 kWp',
     storageCapacity: '40.0 MW',
     storageQuota: '80.0 MWh',
     carbonReduction: '23,000 tCO₂/年',
@@ -478,7 +478,7 @@ export const ALL_COMPANIES: CompanyLocation[] = [
     coordinates: [94.661234, 40.141234],
     logoColor: 'from-amber-200 to-amber-500',
     industry: '高倍聚光熔盐塔式光热',
-    installedCapacity: '100.0 MWp',
+    installedCapacity: '100,000 kWp',
     storageCapacity: '50.0 MW',
     storageQuota: '110.0 MWh',
     carbonReduction: '35,000 tCO₂/年',
@@ -522,27 +522,27 @@ export function formatCompanyCode(idOrCode: string | number): string {
 export interface DistrictNode {
   district: string;
   count: number;
-  pvCapacity: number;       // 光伏装机合计 (MWp)
+  pvCapacity: number;       // 光伏装机合计 (kWp)
   storageCapacity: number;  // 储能装机合计 (MW)
-  storageQuota: number;     // 储能配额合计 (MWh)
+  storageQuota: number;     // 储能容量合计 (MWh)
   companies: CompanyLocation[];
 }
 
 export interface CityNode {
   city: string;
   count: number;
-  pvCapacity: number;       // 光伏装机合计 (MWp)
+  pvCapacity: number;       // 光伏装机合计 (kWp)
   storageCapacity: number;  // 储能装机合计 (MW)
-  storageQuota: number;     // 储能配额合计 (MWh)
+  storageQuota: number;     // 储能容量合计 (MWh)
   districts: DistrictNode[];
 }
 
 export interface ProvinceNode {
   province: string;
   count: number;
-  pvCapacity: number;       // 光伏装机合计 (MWp)
+  pvCapacity: number;       // 光伏装机合计 (kWp)
   storageCapacity: number;  // 储能装机合计 (MW)
-  storageQuota: number;     // 储能配额合计 (MWh)
+  storageQuota: number;     // 储能容量合计 (MWh)
   cities: CityNode[];
 }
 

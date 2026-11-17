@@ -5,17 +5,30 @@ interface HeaderProps {
   onShowGuide: () => void;
   onShowMessageCenter: () => void;
   onShowHelpCenter: () => void;
+  isHelpCenterActive?: boolean;
+  onBackToHome?: () => void;
 }
 
-export function Header({ onLogout, onShowGuide, onShowMessageCenter, onShowHelpCenter }: HeaderProps) {
+export function Header({
+  onLogout,
+  onShowGuide,
+  onShowMessageCenter,
+  onShowHelpCenter,
+  isHelpCenterActive = false,
+  onBackToHome,
+}: HeaderProps) {
   return (
     <header className="h-16 flex-shrink-0 border-b border-slate-100 bg-white px-6 flex items-center justify-between z-10">
-      <div className="flex items-center gap-3">
-        <div className="size-8 rounded-lg bg-green-500 flex items-center justify-center text-white font-bold text-lg shadow-sm shadow-green-500/20">
+      <div
+        onClick={onBackToHome}
+        className={`flex items-center gap-3 ${onBackToHome ? 'cursor-pointer group' : ''}`}
+        title={onBackToHome ? '返回能效工作台' : undefined}
+      >
+        <div className="size-8 rounded-lg bg-green-500 flex items-center justify-center text-white font-bold text-lg shadow-sm shadow-green-500/20 group-hover:bg-green-600 transition-colors">
           天
         </div>
         <div>
-          <h1 className="text-sm font-bold text-slate-800 leading-none mb-0.5">
+          <h1 className="text-sm font-bold text-slate-800 leading-none mb-0.5 group-hover:text-green-600 transition-colors">
             天工智云
           </h1>
           <p className="text-[10px] text-slate-400 font-medium">
@@ -29,7 +42,11 @@ export function Header({ onLogout, onShowGuide, onShowMessageCenter, onShowHelpC
         <button
           type="button"
           onClick={onShowHelpCenter}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 hover:bg-indigo-100 transition-all cursor-pointer"
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
+            isHelpCenterActive
+              ? 'text-white bg-indigo-600 border-indigo-600 shadow-xs hover:bg-indigo-700'
+              : 'text-indigo-600 bg-indigo-50 border-indigo-100 hover:bg-indigo-100'
+          }`}
         >
           <BookOpen className="size-3.5" />
           帮助中心

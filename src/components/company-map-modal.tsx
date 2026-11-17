@@ -690,17 +690,12 @@ export function CompanyMapModal({
                         <div className="mt-1.5 pl-5.5 flex items-center flex-wrap gap-x-2 gap-y-0.5 text-[10px] text-slate-500">
                           <span className="flex items-center gap-0.5">
                             <span className="text-slate-400">光伏:</span>
-                            <span className="text-emerald-700 font-semibold">{formatCapacityNumber(provinceNode.pvCapacity)} MWp</span>
+                            <span className="text-emerald-700 font-semibold">{formatCapacityNumber(provinceNode.pvCapacity, 0)} kWp</span>
                           </span>
                           <span className="text-slate-300">·</span>
                           <span className="flex items-center gap-0.5">
                             <span className="text-slate-400">储能:</span>
-                            <span className="text-blue-700 font-semibold">{formatCapacityNumber(provinceNode.storageCapacity)} MW</span>
-                          </span>
-                          <span className="text-slate-300">·</span>
-                          <span className="flex items-center gap-0.5">
-                            <span className="text-slate-400">配额:</span>
-                            <span className="text-amber-700 font-semibold">{formatCapacityNumber(provinceNode.storageQuota)} MWh</span>
+                            <span className="text-blue-700 font-semibold">{formatCapacityNumber(provinceNode.storageQuota)} MWh</span>
                           </span>
                         </div>
                       </div>
@@ -746,17 +741,12 @@ export function CompanyMapModal({
                                   <div className="mt-1 pl-4.5 flex items-center flex-wrap gap-x-2 gap-y-0.5 text-[9.5px] text-slate-500">
                                     <span className="flex items-center gap-0.5">
                                       <span className="text-slate-400">光伏:</span>
-                                      <span className="text-emerald-700 font-semibold">{formatCapacityNumber(cityNode.pvCapacity)} MWp</span>
+                                      <span className="text-emerald-700 font-semibold">{formatCapacityNumber(cityNode.pvCapacity, 0)} kWp</span>
                                     </span>
                                     <span className="text-slate-300">·</span>
                                     <span className="flex items-center gap-0.5">
                                       <span className="text-slate-400">储能:</span>
-                                      <span className="text-blue-700 font-semibold">{formatCapacityNumber(cityNode.storageCapacity)} MW</span>
-                                    </span>
-                                    <span className="text-slate-300">·</span>
-                                    <span className="flex items-center gap-0.5">
-                                      <span className="text-slate-400">配额:</span>
-                                      <span className="text-amber-700 font-semibold">{formatCapacityNumber(cityNode.storageQuota)} MWh</span>
+                                      <span className="text-blue-700 font-semibold">{formatCapacityNumber(cityNode.storageQuota)} MWh</span>
                                     </span>
                                   </div>
                                 </div>
@@ -985,18 +975,14 @@ export function CompanyMapModal({
                         <Zap className="size-3.5 text-amber-500" />
                         企业静态指标与配置
                       </h4>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-2 gap-2.5">
                         <div className="bg-emerald-50/60 border border-emerald-100 rounded-xl p-2.5 text-center">
                           <div className="text-[10px] text-emerald-700 font-medium">光伏装机</div>
                           <div className="text-xs font-black text-emerald-800 mt-0.5 truncate">{activeCompany.installedCapacity}</div>
                         </div>
                         <div className="bg-blue-50/60 border border-blue-100 rounded-xl p-2.5 text-center">
-                          <div className="text-[10px] text-blue-700 font-medium">储能装机</div>
-                          <div className="text-xs font-black text-blue-800 mt-0.5 truncate">{activeCompany.storageCapacity}</div>
-                        </div>
-                        <div className="bg-amber-50/60 border border-amber-100 rounded-xl p-2.5 text-center">
-                          <div className="text-[10px] text-amber-700 font-medium">储能配额</div>
-                          <div className="text-xs font-black text-amber-800 mt-0.5 truncate">{activeCompany.storageQuota}</div>
+                          <div className="text-[10px] text-blue-700 font-medium">储能容量</div>
+                          <div className="text-xs font-black text-blue-800 mt-0.5 truncate">{activeCompany.storageQuota}</div>
                         </div>
                       </div>
                     </div>

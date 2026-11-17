@@ -20,7 +20,7 @@ import { LoginPage } from './components/login-page';
 import { GuideModal, shouldShowGuide } from './components/guide-modal';
 import { EnergyTools } from './components/energy-tools';
 import { MessageCenter } from './components/message-center';
-import { HelpCenterModal } from './components/help-center-modal';
+import { HelpCenterPage } from './components/help-center-modal';
 import { SplashScreen } from './components/splash-screen';
 
 export default function App() {
@@ -68,12 +68,6 @@ export default function App() {
       <AnimatePresence>
         {showMessageCenter && (
           <MessageCenter onClose={() => setShowMessageCenter(false)} />
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {showHelpCenter && (
-          <HelpCenterModal onClose={() => setShowHelpCenter(false)} />
         )}
       </AnimatePresence>
 
@@ -215,9 +209,15 @@ export default function App() {
 
               {/* 中间页面标题 (微信规范) */}
               <div className="absolute left-1/2 -translate-x-1/2 text-xs font-black text-slate-800 tracking-wide">
-                {activeTab === 'home' && '能效工作台'}
-                {activeTab === 'tools' && '能效百宝箱'}
-                {activeTab === 'profile' && '个人中心'}
+                {showHelpCenter ? (
+                  '帮助中心'
+                ) : (
+                  <>
+                    {activeTab === 'home' && '能效工作台'}
+                    {activeTab === 'tools' && '能效百宝箱'}
+                    {activeTab === 'profile' && '个人中心'}
+                  </>
+                )}
               </div>
 
               {/* 微信标志性胶囊按钮与消息入口 */}
@@ -254,17 +254,27 @@ export default function App() {
 
           {/* 2. 主页面内容滚动区 */}
           <div className="flex-1 overflow-y-auto min-h-0 bg-slate-50">
-            {activeTab === 'home' && (
-              <DashboardContent isTrialMode={isTrialMode} hideTools={true} />
-            )}
+            {showHelpCenter ? (
+              <HelpCenterPage
+                onBack={() => setShowHelpCenter(false)}
+                onOpenGuide={() => {
+                  setShowHelpCenter(false);
+                  setShowGuide(true);
+                }}
+              />
+            ) : (
+              <>
+                {activeTab === 'home' && (
+                  <DashboardContent isTrialMode={isTrialMode} hideTools={true} />
+                )}
 
-            {activeTab === 'tools' && (
-              <div className="p-4 pb-24">
-                <EnergyTools />
-              </div>
-            )}
+                {activeTab === 'tools' && (
+                  <div className="p-4 pb-24">
+                    <EnergyTools />
+                  </div>
+                )}
 
-            {activeTab === 'profile' && (
+                {activeTab === 'profile' && (
               <div className="p-4 space-y-4 pb-24">
                 {/* 用户信息卡片 */}
                 <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
@@ -330,6 +340,20 @@ export default function App() {
                     <ChevronRight className="size-4 text-slate-300" />
                   </div>
 
+                  {/* 帮助中心 FAQ */}
+                  <div 
+                    onClick={() => setShowHelpCenter(true)}
+                    className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 active:bg-slate-100 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="p-1.5 rounded-lg bg-indigo-50 text-indigo-600">
+                        <HelpCircle className="size-4" />
+                      </span>
+                      <span className="text-xs font-bold text-slate-700">帮助中心与常见问题 (FAQ)</span>
+                    </div>
+                    <ChevronRight className="size-4 text-slate-300" />
+                  </div>
+
                   {/* 关于小程序 */}
                   <div 
                     onClick={() => setShowAboutPopup(true)}
@@ -355,14 +379,19 @@ export default function App() {
                 </button>
               </div>
             )}
+              </>
+            )}
           </div>
 
           {/* 3. 微信小程序底部导航栏 TabBar */}
           <div className="h-14 border-t border-slate-100 bg-white/95 backdrop-blur-md flex items-center justify-around flex-shrink-0 z-30 pb-safe shadow-sm select-none">
             <button
-              onClick={() => setActiveTab('home')}
+              onClick={() => {
+                setShowHelpCenter(false);
+                setActiveTab('home');
+              }}
               className={`flex-1 flex flex-col items-center justify-center h-full transition-colors cursor-pointer ${
-                activeTab === 'home' ? 'text-green-600' : 'text-slate-400 hover:text-slate-500'
+                !showHelpCenter && activeTab === 'home' ? 'text-green-600' : 'text-slate-400 hover:text-slate-500'
               }`}
             >
               <LayoutDashboard className="size-5" />
@@ -370,9 +399,12 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setActiveTab('tools')}
+              onClick={() => {
+                setShowHelpCenter(false);
+                setActiveTab('tools');
+              }}
               className={`flex-1 flex flex-col items-center justify-center h-full transition-colors cursor-pointer ${
-                activeTab === 'tools' ? 'text-green-600' : 'text-slate-400 hover:text-slate-500'
+                !showHelpCenter && activeTab === 'tools' ? 'text-green-600' : 'text-slate-400 hover:text-slate-500'
               }`}
             >
               <Calculator className="size-5" />
@@ -380,9 +412,12 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setActiveTab('profile')}
+              onClick={() => {
+                setShowHelpCenter(false);
+                setActiveTab('profile');
+              }}
               className={`flex-1 flex flex-col items-center justify-center h-full transition-colors cursor-pointer ${
-                activeTab === 'profile' ? 'text-green-600' : 'text-slate-400 hover:text-slate-500'
+                !showHelpCenter && activeTab === 'profile' ? 'text-green-600' : 'text-slate-400 hover:text-slate-500'
               }`}
             >
               <User className="size-5" />
@@ -396,21 +431,36 @@ export default function App() {
         <>
           <Header
             onLogout={() => setIsLoggedIn(false)}
-            onShowGuide={() => setShowGuide(true)}
+            onShowGuide={() => {
+              setShowHelpCenter(false);
+              setShowGuide(true);
+            }}
             onShowMessageCenter={() => setShowMessageCenter(true)}
-            onShowHelpCenter={() => setShowHelpCenter(true)}
+            onShowHelpCenter={() => setShowHelpCenter((prev) => !prev)}
+            isHelpCenterActive={showHelpCenter}
+            onBackToHome={() => setShowHelpCenter(false)}
           />
 
-          <div className="flex-1 flex overflow-hidden">
-            <Sidebar
-              collapsed={sidebarCollapsed}
-              onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+          {showHelpCenter ? (
+            <HelpCenterPage
+              onBack={() => setShowHelpCenter(false)}
+              onOpenGuide={() => {
+                setShowHelpCenter(false);
+                setShowGuide(true);
+              }}
             />
+          ) : (
+            <div className="flex-1 flex overflow-hidden">
+              <Sidebar
+                collapsed={sidebarCollapsed}
+                onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+              />
 
-            <main className="flex-1 overflow-y-auto bg-slate-50">
-              <DashboardContent isTrialMode={isTrialMode} />
-            </main>
-          </div>
+              <main className="flex-1 overflow-y-auto bg-slate-50">
+                <DashboardContent isTrialMode={isTrialMode} />
+              </main>
+            </div>
+          )}
         </>
       )}
     </div>
